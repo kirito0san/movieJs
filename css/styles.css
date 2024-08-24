@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "output.css";
+/* css/styles.css */
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --bg-movie: #cdcdcd;
+  --bg-header: #a855f7;
+}
+
+/* تخصيص الثيم الداكن */
+[data-theme="dark"] {
+  --bg-color: #526893;
+  --text-color: #f7fafc;
+  --bg-movie: #cdcdcd;
+  --bg-header: #a855f7;
+}
+header {
+  @apply bg-[--bg-header];
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.container {
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.img {
+  width: 100%;
+}
+.movie-item {
+  flex-grow: 1;
+  width: 300px;
+  margin: 10px 0;
+  cursor: pointer;
+  background-color: var(--bg-movie);
+  border-radius: 8px;
+}
+.movie-item img {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
