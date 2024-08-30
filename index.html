@@ -1,29 +1,213 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie App</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link href="./node_modules/flowbite/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/output.css" />
   </head>
-  <body class="">
-    <header class="container items-center shadow-xl mx-auto text-white flex justify-between">
-      <h2>hello <span id="NAMEUSER"></span></h2>
-      <p class="text-center">
-        <a href="pages/login.html" class="text-purple-600">Login</a> |
-        <a href="pages/signup.html" class="text-purple-600">Sign Up</a>
-      </p>
-    </header>
-    <div class="container mx-auto py-8">
-      <h2 class="text-center text-3xl font-bold text-purple-600 mb-8">Movies</h2>
-      <div class="flex justify-end mb-4">
-        <button id="theme-toggle" class="px-4 py-2 bg-purple-500 text-white rounded-md">
-          Toggle Theme
-        </button>
+
+  <body class="flex flex-col gap-4">
+    <header
+      class="w-[90%] flex-wrap container-custom p-3 gap-3 min-h-[50px] flex justify-between items-center mx-auto text-white shadow-xl"
+    >
+      <!-- /* From Uiverse.io by adeladel522 */ -->
+
+      <div class="flex gap-2 items-center">
+        <p>hello</p>
+        <p
+          id="NAMEUSER"
+          class="bg-[var(--bg-btn)] flex hidden items-center h-[32px] px-2 rounded-lg"
+        ></p>
       </div>
-      <div id="movie-list" class="flex flex-wrap gap-2"></div>
+      <a
+        href="./pages/favorite.html"
+        class="text-[--text-color] hidden Favorite-Movie hover:bg-[--bg-hover-btn] hover:text-[--text-hover-btn] px-2 py-1 rounded-md bg-[--bg-btn]"
+        >Favorite Movie</a
+      >
+      <div>
+        <p class="flex gap-3 items-center text-center login-signup">
+          <a
+            href="pages/login.html"
+            class="text-[--text-color] hover:bg-[--bg-hover-btn] hover:text-[--text-hover-btn] block px-2 py-1 rounded-md bg-[--bg-btn]"
+            >Login</a
+          >
+          |
+          <a
+            href="pages/signup.html"
+            class="text-[--text-color] hover:bg-[--bg-hover-btn] hover:text-[--text-hover-btn] block px-2 py-1 rounded-md bg-[--bg-btn]"
+            >Sign Up</a
+          >
+        </p>
+        <p
+          class="logout cursor-pointer hidden text-[--text-color] hover:bg-[--bg-hover-btn] hover:text-[--text-hover-btn] px-2 py-1 rounded-md bg-[--bg-btn]"
+        >
+          LogOut
+        </p>
+      </div>
+    </header>
+    <div class="w-[90%] container-custom flex flex-col gap-2 px-2 py-5 mx-auto">
+      <h2 class="text-2xl text-center uppercase">top 5 movies</h2>
+      <div class="flex">
+        <div class="radio-input my-auto h-[90%]">
+          <input
+            checked=""
+            ball-color="purple"
+            class="bg-purple-500 theme-ball input"
+            type="radio"
+            name="radio"
+          />
+          <input ball-color="red" class="theme-ball input" type="radio" name="radio" />
+          <input ball-color="green" class="theme-ball input" type="radio" name="radio" />
+        </div>
+
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+          <!-- Carousel wrapper -->
+          <div class="overflow-hidden relative rounded-lg h-[500px]">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://via.placeholder.com/300"
+                class="block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel"
+                alt="..."
+              />
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://via.placeholder.com/300"
+                class="block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel"
+                alt="..."
+              />
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://via.placeholder.com/300"
+                class="block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel"
+                alt="..."
+              />
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://via.placeholder.com/500"
+                class="block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel"
+                alt="..."
+              />
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://via.placeholder.com/400"
+                class="block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel"
+                alt="..."
+              />
+            </div>
+          </div>
+          <!-- Slider indicators -->
+          <div
+            class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2 rtl:space-x-reverse"
+          >
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="true"
+              aria-label="Slide 1"
+              data-carousel-slide-to="0"
+            ></button>
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="false"
+              aria-label="Slide 2"
+              data-carousel-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="false"
+              aria-label="Slide 3"
+              data-carousel-slide-to="2"
+            ></button>
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="false"
+              aria-label="Slide 4"
+              data-carousel-slide-to="3"
+            ></button>
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="false"
+              aria-label="Slide 5"
+              data-carousel-slide-to="4"
+            ></button>
+          </div>
+          <!-- Slider controls -->
+          <button
+            type="button"
+            class="flex absolute top-0 z-30 justify-center items-center px-4 w-10 h-full cursor-pointer start-0 group focus:outline-none"
+            data-carousel-prev
+          >
+            <span
+              class="inline-flex justify-center items-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 1 1 5l4 4"
+                />
+              </svg>
+              <span class="sr-only">Previous</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="flex absolute top-0 z-30 justify-center items-center px-4 w-10 h-full cursor-pointer end-0 group focus:outline-none"
+            data-carousel-next
+          >
+            <span
+              class="inline-flex justify-center items-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"
+                />
+              </svg>
+              <span class="sr-only">Next</span>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
-    <script src="js/main.js"></script>
-    <script src="js/theme.js"></script>
+    <div class="w-[90%] container-custom py-8 mx-auto">
+      <h2 class="mb-8 text-3xl font-bold text-center text-[var(--text-color)]">Movies</h2>
+      <div id="movie-list" class="flex flex-wrap gap-2 justify-center px-2"></div>
+    </div>
+    <script src="js/main.mjs" type="module" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
   </body>
 </html>

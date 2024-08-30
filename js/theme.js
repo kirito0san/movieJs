@@ -1,8 +1,15 @@
-document.getElementById('theme-toggle').addEventListener('click', function () {
-    const htmlElement = document.documentElement;
-    if (htmlElement.getAttribute('data-theme') === 'light') {
-        htmlElement.setAttribute('data-theme', 'dark');
-    } else {
-        htmlElement.setAttribute('data-theme', 'light');
-    }
-});
+const htmlElement = document.documentElement;
+if (!localStorage.getItem("theme")) {
+    localStorage.setItem('theme', "purple")
+    htmlElement.setAttribute('data-theme', "purple");
+} else {
+    htmlElement.setAttribute('data-theme', localStorage.getItem("theme"))
+}
+document.querySelectorAll('.theme-ball').forEach((ball) => {
+    console.log()
+    ball.addEventListener('click', function () {
+        htmlElement.setAttribute('data-theme', ball.getAttribute("ball-color"));
+        localStorage.setItem('theme', ball.getAttribute("ball-color"));
+    });
+})
+

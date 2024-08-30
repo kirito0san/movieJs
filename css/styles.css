@@ -1,21 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "output.css";
+
 /* css/styles.css */
 [data-theme="light"] {
   --bg-color: #ffffff;
-  --text-color: #000000;
+  --text-color: #664545;
+  --Fav-btn: #664545;
+  --Fav-hover-btn: #664545;
   --bg-movie: #cdcdcd;
   --bg-header: #a855f7;
+  --bg-btn: #e3dceb;
+  --text-hover-btn: hsl(0, 0%, 100%);
+  --bg-hover-btn: #b199c9;
+  --bg-hover: #b199c9;
+  --text-hover-color: #f7fafc;
 }
 
 /* تخصيص الثيم الداكن */
-[data-theme="dark"] {
-  --bg-color: #526893;
+[data-theme="purple"] {
+  --Fav-btn: #ad49e1;
+  --Fav-hover-btn: #7a1cac;
+  --bg-color: #ebd3f8;
   --text-color: #f7fafc;
-  --bg-movie: #cdcdcd;
+  --text-hover-color: #28001e;
+  --bg-movie: #ad73cc;
   --bg-header: #a855f7;
+  --bg-btn: #8455bb;
+  --text-hover-btn: #28001e;
+  --bg-hover-btn: #b199c9;
+  --bg-hover: #b199c9;
+  --bg: #591995;
+}
+[data-theme="red"] {
+  --Fav-btn: #c73659;
+  --Fav-hover-btn: #a91d3a;
+  --bg-color: #ac1331;
+  --text-color: #fefefe;
+  --text-hover-color: #f7fafc;
+  --bg-movie: #c73659;
+  --bg-header: #000000;
+  --bg-btn: #c73659;
+  --text-hover-btn: #e9e6ed;
+  --bg-hover-btn: #a91d3a;
+  --bg-hover: #a91d3a;
+  --bg: #b70f32;
+}
+[data-theme="green"] {
+  --Fav-btn: #5c8374;
+  --Fav-hover-btn: #183d3d;
+  --bg-color: #183d3d;
+  --text-color: #f7fafc;
+  --text-hover-color: #f7fafc;
+  --bg-movie: #5c8374;
+  --bg-header: #040d12;
+  --bg-btn: #5c8374;
+  --text-hover-btn: #e9e6ed;
+  --bg-hover-btn: #183d3d;
+  --bg-hover: #183d3d;
+  --bg: #082828;
 }
 header {
   @apply bg-[--bg-header];
@@ -24,10 +67,10 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
-.container {
-  padding: 20px;
+.container-custom {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  @apply bg-[var(--bg)];
 }
 
 h2 {
@@ -45,15 +88,10 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 .error-message {
@@ -65,17 +103,119 @@ button:hover {
   width: 100%;
 }
 .movie-item {
-  flex-grow: 1;
-  width: 300px;
-  margin: 10px 0;
-  cursor: pointer;
-  background-color: var(--bg-movie);
-  border-radius: 8px;
+  @apply relative shadow-2xl overflow-hidden transition-all flex-[1_0_100px] max-w-[400px] md:flex-[1_0_300px] gap-3 rounded-lg hover:text-[var(--text-hover-color)] cursor-pointer bg-[var(--bg-movie)] hover:bg-[var(--bg-hover)];
+}
+.movie-item h3 {
+  @apply py-2 text-[var(--text-color)] md:text-xl font-semibold text-center;
 }
 .movie-item img {
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  @apply object-contain;
+}
+.btn {
+  @apply text-[var(--text-color)] hover:text-[--text-hover-btn]  hover:bg-[var(--bg-hover-btn)] bg-[var(--bg-btn)] p-[10px] rounded-[4px];
+}
+.Fav-btn {
+  @apply py-2 w-full hover:bg-[var(--Fav-hover-btn)] bg-[var(--Fav-btn)];
+}
+
+/* From Uiverse.io by adeladel522 */
+.radio-input {
+  @apply py-1 bg-white rounded-md w-fit;
+}
+.input {
+  appearance: none;
+  /* remove default */
+  display: block;
+  margin: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  /* vertical-align: middle; */
+  background-color: hsla(0, 0%, 0%, 0.2);
+  background-repeat: no-repeat;
+  transition: background-position 0.15s cubic-bezier(0.8, 0, 1, 1),
+    transform 0.25s cubic-bezier(0.8, 0, 1, 1);
+  outline: none;
+}
+.input:checked {
+  transition: background-position 0.2s 0.15s cubic-bezier(0, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+}
+[type="checkbox"]:checked,
+[type="radio"]:checked {
+  background-position: 0 0;
+  background: -webkit-radial-gradient(
+    rgb(211, 20, 236) 0%,
+    rgb(207, 59, 180) 15%,
+    hsla(336, 100%, 60%, 0.3) 28%,
+    hsla(200, 100%, 30%, 0) 70%
+  );
+  background-repeat: no-repeat;
+  background-size: auto;
+  border-color: transparent;
+}
+.input:nth-child(1) {
+  background-image: -webkit-radial-gradient(
+    rgb(211, 20, 236) 0%,
+    rgb(207, 59, 180) 15%,
+    hsla(336, 100%, 60%, 0.3) 28%,
+    hsla(200, 100%, 30%, 0) 70%
+  );
+  box-shadow: hsla(0, 0%, 100%, 0.15) 0 1px 1px, inset hsla(302, 92%, 48%, 0.5) 0 0 0 1px;
+}
+.input:nth-child(2) {
+  background-image: -webkit-radial-gradient(
+    rgb(255, 0, 0) 0%,
+    rgb(242, 19, 49) 15%,
+    hsla(0, 77%, 44%, 0.3) 28%,
+    hsla(200, 100%, 30%, 0) 70%
+  );
+  box-shadow: hsla(0, 0%, 100%, 0.15) 0 1px 1px, inset hsla(344, 97%, 44%, 0.5) 0 0 0 1px;
+}
+.input:nth-child(3) {
+  background-image: -webkit-radial-gradient(
+    rgb(93, 253, 7) 0%,
+    rgb(111, 250, 12) 15%,
+    hsla(122, 76%, 54%, 0.3) 28%,
+    hsla(200, 100%, 30%, 0) 70%
+  );
+  box-shadow: hsla(0, 0%, 100%, 0.15) 0 1px 1px, inset hsla(112, 92%, 48%, 0.5) 0 0 0 1px;
+}
+.input:active {
+  transform: scale(1.5);
+  transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -webkit-transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+  -moz-transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+  -ms-transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+  -o-transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* The up/down direction logic */
+
+.input,
+.input:active {
+  background-position: 0 24px;
+}
+
+.input:checked {
+  background-position: 0 0;
+}
+
+.input:checked ~ .input,
+.input:checked ~ .input:active {
+  background-position: 0 -24px;
+}
+.carousel {
+  @apply w-[268px] cursor-pointer h-[400px] rounded-lg object-contain;
+}
+input {
+  @apply text-black;
+}
+.remover-favorite {
+  @apply w-[40px] h-[40px] rounded-full flex justify-center items-center absolute top-[10px] right-[10px] bg-[#7F3FBF] text-white text-[18px];
 }

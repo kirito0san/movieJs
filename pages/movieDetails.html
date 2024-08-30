@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Details</title>
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/output.css" />
   </head>
-  <body class="bg-gray-100 text-gray-900">
-    <div class="container mx-auto py-8">
-      <div class="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
-        <h2 id="movie-title" class="text-center text-2xl font-bold text-purple-600 mb-4">
+  <body class="text-gray-900 bg-gray-100">
+    <div class="container py-2 mx-auto">
+      <div class="p-8 mx-auto max-w-md bg-white rounded-md shadow-md">
+        <h2 id="movie-title" class="mb-4 text-2xl font-bold text-center text-purple-600">
           Movie Title
         </h2>
-        <img id="movie-poster" src="" alt="Movie Poster" class="w-full rounded-md mb-4" />
-        <p id="movie-description" class="text-gray-700 mb-4">Movie Description</p>
-        <button id="favorite-button" class="w-full bg-purple-500 text-white py-2 rounded-md">
-          Add to Favorites
-        </button>
-        <p class="text-center mt-4">
-          <a href="../index.html" class="text-purple-600">Back to Movies</a>
-        </p>
+        <img id="movie-poster" src="" alt="Movie Poster" class="mb-4 w-full rounded-md" />
+        <p id="movie-description" class="mb-4 text-gray-700">Movie Description</p>
+        <button id="favorite-button" class="Fav-btn btn">Add to Favorites</button>
+        <div class="flex gap-4 justify-between mt-4 text-center">
+          <a id="go-to-movie" class="flex-1 btn" href="">Go to Movies</a>
+          <a class="flex-1 btn" href="../index.html">Home</a>
+        </div>
       </div>
     </div>
     <script src="../js/movieDetails.js"></script>

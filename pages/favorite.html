@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/output.css" />
+  </head>
+  <body class="flex flex-col gap-5">
+    <header
+      class="w-[80%] container-custom px-3 h-[50px] flex justify-between items-center mx-auto text-white shadow-xl"
+    >
+      <!-- /* From Uiverse.io by adeladel522 */ -->
+
+      <div class="flex gap-2 items-center">
+        <p>hello</p>
+        <p
+          id="NAMEUSER"
+          class="bg-[var(--bg-btn)] flex hidden items-center h-[32px] px-2 rounded-lg"
+        ></p>
+      </div>
+      <div>
+        <p class="flex gap-3 items-center text-center login-signup">
+          <a
+            href="./login.html"
+            class="text-[--text-color] hover:bg-[--bg-hover-btn] hover:text-[--text-hover-btn] block px-2 py-1 rounded-md bg-[--bg-btn]"
+            >Login</a
+          >
+          |
+          <a
+            href="./signup.html"
+            class="text-[--text-color] hover:bg-[--bg-hover-btn] hover:text-[--text-hover-btn] block px-2 py-1 rounded-md bg-[--bg-btn]"
+            >Sign Up</a
+          >
+        </p>
+        <p
+          class="logout cursor-pointer hidden text-[--text-color] hover:bg-[--bg-hover-btn] hover:text-[--text-hover-btn] px-2 py-1 rounded-md bg-[--bg-btn]"
+        >
+          LogOut
+        </p>
+      </div>
+    </header>
+    <div
+      id="movie-list"
+      class="w-[80%] container-custom flex flex-wrap gap-2 justify-center px-2 py-3 mx-auto"
+    ></div>
+    <div class="flex justify-center pb-5">
+      <a
+        class="cursor-pointer text-[--text-color] hover:bg-[--bg-hover-btn] hover:text-[--text-hover-btn] px-2 py-1 rounded-md bg-[--bg-btn]"
+        href="../index.html"
+        >back to home</a
+      >
+    </div>
+    <script src="../js/favorite.js"></script>
+  </body>
+</html>
