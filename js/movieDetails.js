@@ -2,14 +2,14 @@ let movie = JSON.parse(localStorage.getItem("selectedMovie"));
 const getId = new URLSearchParams(window.location.search);
 let id = getId.get("id");
 const htmlElement = document.documentElement;
-htmlElement.setAttribute('data-theme', localStorage.getItem("theme"));
+htmlElement.setAttribute("data-theme", localStorage.getItem("theme"));
 async function getMovieDetail(id) {
     const res = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?language=en&api_key=ed3cf244540561d19a7f1b4bef7b3c2b`
     );
     const data = await res.json();
     console.log(data);
-    document.getElementById("go-to-movie").href = data.homepage
+    document.getElementById("go-to-movie").href = data.homepage;
 }
 getMovieDetail(id);
 document.addEventListener("DOMContentLoaded", function () {
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
                 if (loggedInUser) {
                     const userIndex = users.findIndex((user) => user.username === loggedInUser.username);
+
                     if (userIndex !== -1) {
                         users[userIndex].favorites.push(movie);
                         localStorage.setItem("loggedInUser", JSON.stringify(users[userIndex]));

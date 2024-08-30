@@ -14,18 +14,18 @@ document.getElementById('signup-button').addEventListener('click', function () {
     fetch('https://api-generator.retool.com/NzNpbh/data')
         .then(data => data.json())
         .then(users => {
-            console.log(users)
             const userExists = users.some(user => user.username === username);
             if (!userExists) {
                 const newUser = { username: username, password: password, favorites: [] };
                 updateUserJSON(newUser);
                 localStorage.setItem('loggedInUser', JSON.stringify(newUser));
-
-                window.location.href = '../index.html';
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 500);
             } else {
                 document.getElementById('signup-error').textContent = 'Username already exists';
             }
-        });
+        })
 
     function updateUserJSON(users) {
         fetch("https://api-generator.retool.com/NzNpbh/data", {

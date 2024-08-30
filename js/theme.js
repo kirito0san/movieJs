@@ -6,7 +6,6 @@ if (!localStorage.getItem("theme")) {
     htmlElement.setAttribute('data-theme', localStorage.getItem("theme"))
 }
 document.querySelectorAll('.theme-ball').forEach((ball) => {
-    console.log()
     ball.addEventListener('click', function () {
         htmlElement.setAttribute('data-theme', ball.getAttribute("ball-color"));
         localStorage.setItem('theme', ball.getAttribute("ball-color"));
